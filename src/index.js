@@ -43,3 +43,38 @@ console.log('Proje açıldı!')
 
 
 /* Kodlar Buradan aşağıya */
+let headerNav = document.querySelectorAll("nav a");
+Object.values(siteContent.nav).forEach((element, index) => {
+  headerNav[index].textContent = element;
+  headerNav[index].setAttribute("class", "italic")
+})
+
+
+let myImages = document.querySelectorAll("img");
+Object.values(siteContent.images).forEach((element, index) => {
+  myImages[index].src = element;
+})
+
+let myCTA = document.getElementsByClassName("cta-text")[0].children;
+Object.values(siteContent.cta).forEach((element, index) => {
+  myCTA[index].textContent = element;
+})
+
+let textContainerH = document.querySelectorAll(".text-content h4");
+let textContainerP = document.querySelectorAll(".text-content p")
+Object.values(siteContent["ana-içerik"]).forEach((element, index) => {
+  if (Object.keys(siteContent["ana-içerik"])[index].slice(-3) === "-h4") {
+    textContainerH[index / 2].textContent = element;
+  } else {
+    textContainerP[Math.floor(index / 2)].textContent = element;
+  }
+})
+
+let textContact = document.querySelectorAll(".contact")[0].children;
+Object.values(siteContent["iletisim"]).forEach((element, index) => {
+  textContact[index].textContent = element
+})
+
+let footerLink = document.querySelector("footer a");
+footerLink.textContent = Object.values(siteContent["footer"])
+footerLink.setAttribute("class", "bold")
